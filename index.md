@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+## Welcome to BRIAN UPGRADE ME
 
-You can use the [editor on GitHub](https://github.com/VirusNulled/brianupgrade.me/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+You can use the [Brian Upgrade Services](https://brianupgrade.me) to upgrade your account on nulled WITH BRIAN.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Whenever you commit to this upgrade.
 
-### Markdown
+### How to upgrade?!
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+IDK JUST ASK TO BRIAN
 
 ```markdown
-Syntax highlighted code block
+BRIAN
 
-# Header 1
-## Header 2
-### Header 3
+# UPGRADE
+## ME
+### PLEASE
 
-- Bulleted
-- List
+- RLLY
+- I NEED TO BE NOVA
 
-1. Numbered
-2. List
+1. OR
+2.I WILL FKIN DIE
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/VirusNulled/brianupgrade.me/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+For more details see [BRIAN's PROFILE](https://www.nulled.to/user/1468487-).
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Having trouble with Upgrading your account? Check out our [DoCuMenTaTioN](https://www.youtube.com/watch?v=dQw4w9WgXcQ) or [contact support](https://www.youtube.com/watch?v=dQw4w9WgXcQ) and we’ll help you sort it out fucking leecher.
